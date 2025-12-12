@@ -1,0 +1,35 @@
+# Environnements virtuels
+venv/
+env/
+*.env
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de données SQLite
+db.sqlite3
+*.sqlite3
+
+# Fichiers de migration (optionnel, si vous voulez les ignorer)
+# migrations/
+# **/migrations/
+
+# Fichiers de logs
+*.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Fichiers IDE (exemples)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Media uploadés (optionnel si tu ne veux pas suivre les fichiers médias)
+media/
