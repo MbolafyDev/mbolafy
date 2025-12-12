@@ -1,0 +1,29 @@
+<div class="card section-card">
+    <h5 class="card-title"><i class="fa-solid fa-diagram-project me-2 text-warning"></i>Mes Projets</h5>
+    <div class="row g-4">
+        {% for project in projects %}
+            <div class="col-md-4">
+                <div class="card project-card h-100">
+                    {% if project.images %}
+                    <div id="carouselProjet{{ project.id }}" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for image_url in project.images %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image_url }}" class="d-block w-100" alt="{{ project.title }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h6 class="card-title">{{ project.title }}</h6>
+                        <p class="card-text">{{ project.description }}</p>
+                        {% if project.code_url %}<a href="{{ project.code_url }}" target="_blank">Code</a> | {% endif %}
+                        {% if project.demo_url %}<a href="{{ project.demo_url }}" target="_blank">Démo</a>{% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

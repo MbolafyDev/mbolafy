@@ -1,0 +1,11 @@
+<div class="card p-3 mb-4 shadow-sm">
+    <h5 class="card-title"><i class="fas fa-language me-2 text-primary"></i>Connaissances Linguistiques</h5>
+    <div class="d-flex justify-content-around flex-wrap">
+        {% for lang in languages %}
+        <div class="text-center m-2">
+            <div class="progress-circle" data-progress="{{ lang.level }}"><span>{{ lang.level }}%</span></div>
+            <p class="mb-0 mt-2">{{ lang.name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="card p-3 mb-4 shadow-sm">
+    <h5 class="card-title"><i class="fas fa-heart me-2 text-danger"></i>Loisirs</h5>
+    <ul class="list-unstyled mb-0">
+        {% for hobby in hobbies %}
+        <li class="mb-2"><i class="{{ hobby.icon_class }} me-2 text-success"></i>{{ hobby.name }}</li>
+        {% endfor %}
+    </ul>
+</div>

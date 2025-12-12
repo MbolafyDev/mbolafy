@@ -1,0 +1,8 @@
+<div class="card p-3 photo-card">
+    <h5 class="card-title d-flex justify-content-between">Photos <a href="#" class="text-decoration-none">Voir tout</a></h5>
+    <div class="row g-1">
+        {% for photo in photos %}
+        <div class="col-4"><img src="{{ photo.image.url }}" class="img-fluid rounded" alt="{{ photo.title }}"></div>
+        {% endfor %}
+    </div>
+</div>

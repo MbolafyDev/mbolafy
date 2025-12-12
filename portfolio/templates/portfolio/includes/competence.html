@@ -1,0 +1,16 @@
+<div class="card section-card">
+    <h5 class="card-title"><i class="fa-solid fa-code me-2 text-info"></i>Compétences</h5>
+    <div class="row">
+        {% for skill in skills %}
+            <div class="col-md-6">
+                <label>{{ skill.name }}</label>
+                <div class="progress mb-3">
+                    <div class="progress-bar {{ skill.color_class }}" style="width:{{ skill.level }}%">
+                        {{ skill.level }}%
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

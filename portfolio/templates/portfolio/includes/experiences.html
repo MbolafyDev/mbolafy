@@ -1,0 +1,19 @@
+<div class="card section-card shadow-sm mb-4">
+    <h5 class="card-title mb-3"><i class="fa-solid fa-briefcase me-2 text-danger"></i>Expériences Professionnelles</h5>
+    <div class="timeline-modern">
+        {% for exp in experiences %}
+            {% if exp.type == 'experience' %}
+            <div class="timeline-item-modern">
+                <div class="timeline-badge" style="background-color: {{ exp.color }}"><i class="{{ exp.icon }}"></i></div>
+                <div class="timeline-body">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <h6 class="mb-1 fw-bold">{{ exp.title }}</h6>
+                        <span class="text-muted small">{{ exp.year }}</span>
+                    </div>
+                    <p class="text-muted mb-0">{{ exp.description }}</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

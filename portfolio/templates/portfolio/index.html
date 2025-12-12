@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'portfolio/includes/profile_card.html' %}
+    <div class="row mt-4">
+        {% include 'portfolio/includes/colonne_gauche.html' %}
+        {% include 'portfolio/includes/colonne_droite.html' %}
+    </div>
+{% endblock %}
