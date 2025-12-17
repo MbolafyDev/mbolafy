@@ -5,7 +5,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = os.getenv(
     'DJANGO_ALLOWED_HOSTS',
-    'mbolafly.pythonanywhere.com'
+    "mbolafly.pythonanywhere.com",
+    "www.mbolafly.pythonanywhere.com"
 ).split(',')
 
 DATABASES = {
