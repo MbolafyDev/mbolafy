@@ -1,12 +1,11 @@
-<div class="card section-card">
-    <h5 class="card-title"><i class="fa-solid fa-user me-2 text-success"></i>À propos de moi</h5>
-    <p class="text-muted">
-        {% if about %}
-            {{ about.content }}
-        {% else %}
-            Passionné par le développement web et les nouvelles technologies, 
-            je crée des applications performantes, dynamiques et esthétiques.
-            Mon objectif : concevoir des solutions modernes adaptées aux besoins de chaque projet.
-        {% endif %}
-    </p>
+<div class="card p-3 mb-3">
+    <h4 class="primary-color mb-3">À propos de moi</h4>
+
+    <!-- Affiche le texte principal "about" -->
+    {% if about %}
+        <p>{{ about.content }}</p>
+    {% else %}
+        <p class="text-muted">Aucune description disponible.</p>
+    {% endif %}
+
 </div>

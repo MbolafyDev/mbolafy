@@ -1,16 +1,15 @@
-<div class="card section-card">
-    <h5 class="card-title"><i class="fa-solid fa-code me-2 text-info"></i>Compétences</h5>
-    <div class="row">
+<div class="card p-3 mb-3">
+    <h4 class="primary-color mb-3">Compétences</h4>
+    {% if skills %}
         {% for skill in skills %}
-            <div class="col-md-6">
-                <label>{{ skill.name }}</label>
-                <div class="progress mb-3">
-                    <div class="progress-bar {{ skill.color_class }}" style="width:{{ skill.level }}%">
-                        {{ skill.level }}%
-                    </div>
-                </div>
+        <div class="mb-2">
+            <span>{{ skill.name }}</span>
+            <div class="progress">
+                <div class="progress-bar bg-primary-color" role="progressbar" style="width: {{ skill.level }}%;" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
+        </div>
         {% endfor %}
-
-    </div>
+    {% else %}
+    <p class="text-muted">Aucune compétence disponible.</p>
+    {% endif %}
 </div>

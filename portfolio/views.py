@@ -16,18 +16,17 @@ from intro.models import About  # nouvelle app
 
 def home(request):
     # Récupération des données
-    profile = Profile.objects.first()  # 1 seul profil
-    intro_items = IntroItem.objects.all()  # Liste des items intro
+    profile = Profile.objects.first()
+    intro_items = IntroItem.objects.all()
     about = About.objects.first()
-    qualities = Quality.objects.all()  # Qualités personnelles
-    languages = Language.objects.all()  # Compétences techniques / langages
-    contact_info = ContactInfo.objects.first()  # 1 seul contact
-    hobbies = Hobby.objects.all()  # Loisirs
-    photos = Photo.objects.all().order_by('-uploaded_at')  # Photos récentes en premier
-    skills = Competence.objects.all().order_by('-level')  # Compétences dynamiques
-    projects = Projet.objects.all().order_by('-created_at')  # Projets dynamiques
+    qualities = Quality.objects.all()
+    languages = Language.objects.all()  # récupère les niveaux textuels
+    contact_info = ContactInfo.objects.first()
+    hobbies = Hobby.objects.all()
+    photos = Photo.objects.all().order_by('-uploaded_at')
+    skills = Competence.objects.all().order_by('-level')
+    projects = Projet.objects.all().order_by('-created_at')
 
-    # Experiences et parcours (même modèle, différencié par type)
     experiences = Experience.objects.filter(type='experience').order_by('-year')
     parcours = Experience.objects.filter(type='parcours').order_by('-year')
 
@@ -36,12 +35,12 @@ def home(request):
         "intro_items": intro_items,
         "about": about,
         "qualities": qualities,
-        "languages": languages,
+        "languages": languages,  # injection pour template
         "contact_info": contact_info,
         "hobbies": hobbies,
         "photos": photos,
-        "skills": skills,          # injection dans le template
-        "projects": projects,      # injection dans le template
+        "skills": skills,
+        "projects": projects,
         "experiences": experiences,
         "parcours": parcours,
     }
