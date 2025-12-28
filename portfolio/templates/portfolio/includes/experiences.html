@@ -1,19 +1,13 @@
-<div class="card p-3 mb-3">
-    <h4 class="primary-color mb-3">Expériences professionnelles</h4>
-    {% if experiences %}
-    <ul class="list-group list-group-flush">
-        {% for exp in experiences %}
-        <li class="list-group-item">
-            <strong>{{ exp.title }}</strong>
-            {% if exp.company %}- {{ exp.company }}{% endif %}
-            <span class="text-muted float-end">{{ exp.year }}</span>
-            {% if exp.description %}
-            <p>{{ exp.description }}</p>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p class="text-muted">Aucune expérience disponible.</p>
-    {% endif %}
+<section id="experiences" class="container">
+<h2 class="section-title"><i class="fa fa-briefcase"></i> Expériences</h2>
+<div class="experience-card">
+    <strong>Développeur Web – ZaraSpace</strong>
+    <div class="small">2022 – 2026</div>
+    <p>Lorem ipsum dolor sit amet.</p>
 </div>
+<div class="experience-card">
+    <strong>Freelance Web Developer</strong>
+    <div class="small">2021 – Présent</div>
+    <p>Lorem ipsum dolor sit amet.</p>
+</div>
+</section>

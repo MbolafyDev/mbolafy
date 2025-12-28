@@ -1,23 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base_2.html' %}
 
 {% block content %}
-<div class="row">
-    <!-- Colonne gauche: profil + contact + compétences -->
-    <div class="col-lg-4 mb-4">
-        {% include 'portfolio/includes/profile_card.html' %}
-        {% include 'portfolio/includes/contact.html' %}
-        {% include 'portfolio/includes/qualite.html' %}
-        {% include 'portfolio/includes/langue.html' %}
-        {% include 'portfolio/includes/competence.html' %}
-        {% include 'portfolio/includes/photos.html' %}
-    </div>
-
-    <!-- Colonne droite: sections principales -->
-    <div class="col-lg-8 mb-4">
-        {% include 'portfolio/includes/apropos.html' %}
-        {% include 'portfolio/includes/experiences.html' %}
+        {% include 'portfolio/includes/accueil.html' %}
         {% include 'portfolio/includes/parcours.html' %}
+        {% include 'portfolio/includes/experiences.html' %}
+        {% include 'portfolio/includes/competence.html' %}
         {% include 'portfolio/includes/projet.html' %}
-    </div>
-</div>
+        {% include 'portfolio/includes/contact.html' %}
 {% endblock %}

@@ -1,16 +1,6 @@
-<div class="card p-3 mb-3">
-    <h5 class="primary-color mb-3">Contact</h5>
-    {% if contact_info %}
-        {% if contact_info.email %}
-        <p><i class="fas fa-envelope me-2"></i>{{ contact_info.email }}</p>
-        {% endif %}
-        {% if contact_info.phone %}
-        <p><i class="fas fa-phone me-2"></i>{{ contact_info.phone }}</p>
-        {% endif %}
-        {% if contact_info.address %}
-        <p><i class="fas fa-map-marker-alt me-2"></i>{{ contact_info.address }}</p>
-        {% endif %}
-    {% else %}
-    <p class="text-muted">Aucune information de contact disponible.</p>
-    {% endif %}
-</div>
+<section id="contact" class="container">
+<h2 class="section-title"><i class="fa fa-envelope"></i> Contact</h2>
+<p><i class="fa fa-map-marker-alt"></i> Madagascar</p>
+<p><i class="fa fa-phone"></i> 034 07 726 12</p>
+<p><i class="fa fa-envelope"></i> mbolafy.dev@gmail.com</p>
+</section>

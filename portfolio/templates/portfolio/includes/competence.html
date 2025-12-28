@@ -1,15 +1,38 @@
-<div class="card p-3 mb-3">
-    <h4 class="primary-color mb-3">Compétences</h4>
-    {% if skills %}
-        {% for skill in skills %}
-        <div class="mb-2">
-            <span>{{ skill.name }}</span>
+<section id="competences" class="skills-section">
+<div class="container">
+<h2 class="section-title"><i class="fa fa-cogs"></i> Compétences</h2>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="skill-card">
+            <i class="fab fa-python"></i>
+            <div class="skill-title">Python / Django</div>
+            <p>Backend & API</p>
             <div class="progress">
-                <div class="progress-bar bg-primary-color" role="progressbar" style="width: {{ skill.level }}%;" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" style="width:85%"></div>
             </div>
         </div>
-        {% endfor %}
-    {% else %}
-    <p class="text-muted">Aucune compétence disponible.</p>
-    {% endif %}
+    </div>
+    <div class="col-md-4">
+        <div class="skill-card">
+            <i class="fab fa-html5"></i>
+            <div class="skill-title">HTML / CSS / Bootstrap</div>
+            <p>Interfaces modernes</p>
+            <div class="progress">
+                <div class="progress-bar" style="width:90%"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="skill-card">
+            <i class="fab fa-js"></i>
+            <div class="skill-title">JavaScript / jQuery</div>
+            <p>Interactions dynamiques</p>
+            <div class="progress">
+                <div class="progress-bar" style="width:75%"></div>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+</section>

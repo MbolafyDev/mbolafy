@@ -1,18 +1,15 @@
-<div class="card p-3 mb-3">
-    <h4 class="primary-color mb-3">Parcours académique</h4>
-    {% if parcours %}
-    <ul class="list-group list-group-flush">
-        {% for p in parcours %}
-        <li class="list-group-item">
-            <strong>{{ p.title }}</strong>  <!-- titre du parcours -->
-            <span class="text-muted float-end">{{ p.year }}</span>
-            {% if p.description %}
-            <p>{{ p.description }}</p>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p class="text-muted">Aucun parcours disponible.</p>
-    {% endif %}
+<section id="parcours" class="container">
+<h2 class="section-title"><i class="fa fa-graduation-cap"></i> Parcours</h2>
+<div class="timeline">
+    <div class="timeline-item">
+        <strong>Licence Informatique</strong>
+        <div class="small">2023 - 2026</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="timeline-item">
+        <strong>Baccalauréat Scientifique</strong>
+        <div class="small">2020 - 2022</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
 </div>
+</section>
