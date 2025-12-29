@@ -1,6 +1,12 @@
+{% comment %} mbolafy/contact/includes/contact.html {% endcomment %}
+
 <section id="contact" class="container">
-<h2 class="section-title"><i class="fa fa-envelope"></i> Contact</h2>
-<p><i class="fa fa-map-marker-alt"></i> Madagascar</p>
-<p><i class="fa fa-phone"></i> 034 07 726 12</p>
-<p><i class="fa fa-envelope"></i> mbolafy.dev@gmail.com</p>
+    <h2 class="section-title"><i class="fa fa-envelope"></i> Contact</h2>
+    {% if contact_info %}
+        <p><i class="fa fa-map-marker-alt"></i> {{ contact_info.location }}</p>
+        <p><i class="fa fa-phone"></i> {{ contact_info.phone }}</p>
+        <p><i class="fa fa-envelope"></i> {{ contact_info.email }}</p>
+    {% else %}
+        <p>Aucune information de contact disponible pour le moment.</p>
+    {% endif %}
 </section>

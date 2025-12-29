@@ -1,15 +1,23 @@
+{% comment %} mbolafy/portfolio/includes/parcours.html {% endcomment %}
+
 <section id="parcours" class="container">
-<h2 class="section-title"><i class="fa fa-graduation-cap"></i> Parcours</h2>
-<div class="timeline">
-    <div class="timeline-item">
-        <strong>Licence Informatique</strong>
-        <div class="small">2023 - 2026</div>
-        <p>Lorem ipsum dolor sit amet.</p>
+    <h2 class="section-title">
+        <i class="fa fa-graduation-cap"></i> Parcours
+    </h2>
+
+    <div class="timeline">
+        {% for item in parcours %}
+            <div class="timeline-item">
+                <strong>{{ item.titre }}</strong>
+                <div class="small">
+                    {{ item.annee_debut }} - {{ item.annee_fin }}
+                </div>
+                <p>{{ item.description }}</p>
+            </div>
+        {% empty %}
+            <p class="text-muted">
+                Aucun parcours à afficher pour le moment.
+            </p>
+        {% endfor %}
     </div>
-    <div class="timeline-item">
-        <strong>Baccalauréat Scientifique</strong>
-        <div class="small">2020 - 2022</div>
-        <p>Lorem ipsum dolor sit amet.</p>
-    </div>
-</div>
 </section>

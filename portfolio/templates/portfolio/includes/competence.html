@@ -1,38 +1,24 @@
-<section id="competences" class="skills-section">
-<div class="container">
-<h2 class="section-title"><i class="fa fa-cogs"></i> Compétences</h2>
+{% comment %} mbolafy/competence/templates/competence/includes/competence.html {% endcomment %}
 
-<div class="row g-4">
-    <div class="col-md-4">
-        <div class="skill-card">
-            <i class="fab fa-python"></i>
-            <div class="skill-title">Python / Django</div>
-            <p>Backend & API</p>
-            <div class="progress">
-                <div class="progress-bar" style="width:85%"></div>
-            </div>
+<section id="competences" class="skills-section">
+    <div class="container">
+        <h2 class="section-title"><i class="fa fa-cogs"></i> Compétences</h2>
+
+        <div class="row g-4">
+            {% for competence in competences %}
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <i class="{{ competence.icone }}"></i>
+                        <div class="skill-title">{{ competence.titre }}</div>
+                        <p>{{ competence.description }}</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:{{ competence.niveau }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Aucune compétence disponible pour le moment.</p>
+            {% endfor %}
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="skill-card">
-            <i class="fab fa-html5"></i>
-            <div class="skill-title">HTML / CSS / Bootstrap</div>
-            <p>Interfaces modernes</p>
-            <div class="progress">
-                <div class="progress-bar" style="width:90%"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="skill-card">
-            <i class="fab fa-js"></i>
-            <div class="skill-title">JavaScript / jQuery</div>
-            <p>Interactions dynamiques</p>
-            <div class="progress">
-                <div class="progress-bar" style="width:75%"></div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 </section>

@@ -1,13 +1,19 @@
+{% comment %} mbolafy/portfolio/includes/experiences.html {% endcomment %}
+
 <section id="experiences" class="container">
-<h2 class="section-title"><i class="fa fa-briefcase"></i> Expériences</h2>
-<div class="experience-card">
-    <strong>Développeur Web – ZaraSpace</strong>
-    <div class="small">2022 – 2026</div>
-    <p>Lorem ipsum dolor sit amet.</p>
-</div>
-<div class="experience-card">
-    <strong>Freelance Web Developer</strong>
-    <div class="small">2021 – Présent</div>
-    <p>Lorem ipsum dolor sit amet.</p>
-</div>
+    <h2 class="section-title"><i class="fa fa-briefcase"></i> Expériences</h2>
+
+    {% if experiences %}
+        {% for exp in experiences %}
+            {% if exp.is_active %}
+            <div class="experience-card">
+                <strong>{{ exp.titre }}{% if exp.entreprise %} – {{ exp.entreprise }}{% endif %}</strong>
+                <div class="small">{{ exp.date_debut }} – {{ exp.date_fin }}</div>
+                <p>{{ exp.description }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>Aucune expérience disponible pour le moment.</p>
+    {% endif %}
 </section>

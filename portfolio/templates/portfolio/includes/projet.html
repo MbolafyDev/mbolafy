@@ -1,29 +1,21 @@
 <section id="projets" class="container">
-<h2 class="section-title"><i class="fa fa-folder-open"></i> Projets</h2>
-<div class="row g-4">
-    <div class="col-md-4 d-flex">
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="project-img">
-            <strong>Projet Web</strong>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <a href="#" class="btn btn-outline-pdf btn-sm"><i class="fa fa-eye"></i> Voir</a>
+    <h2 class="section-title"><i class="fa fa-folder-open"></i> Projets</h2>
+    <div class="row g-4">
+        {% for projet in projets %}
+        <div class="col-md-4 d-flex">
+            <div class="project-card">
+                <img src="{{ projet.image.url }}" class="project-img" alt="{{ projet.titre }}">
+                <strong>{{ projet.titre }}</strong>
+                <p>{{ projet.description|truncatechars:100 }}</p>
+                {% if projet.lien %}
+                <a href="{{ projet.lien }}" class="btn btn-outline-pdf btn-sm" target="_blank">
+                    <i class="fa fa-eye"></i> Voir
+                </a>
+                {% endif %}
+            </div>
         </div>
+        {% empty %}
+        <p>Aucun projet trouvé pour le moment.</p>
+        {% endfor %}
     </div>
-    <div class="col-md-4 d-flex">
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f" class="project-img">
-            <strong>Application Django</strong>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <a href="#" class="btn btn-outline-pdf btn-sm"><i class="fa fa-eye"></i> Voir</a>
-        </div>
-    </div>
-    <div class="col-md-4 d-flex">
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" class="project-img">
-            <strong>Portfolio</strong>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <a href="#" class="btn btn-outline-pdf btn-sm"><i class="fa fa-eye"></i> Voir</a>
-        </div>
-    </div>
-</div>
 </section>

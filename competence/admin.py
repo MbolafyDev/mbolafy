@@ -1,9 +1,11 @@
+# mbolafy/parcour/models.py
+
 from django.contrib import admin
 from .models import Competence
 
 @admin.register(Competence)
 class CompetenceAdmin(admin.ModelAdmin):
-    list_display = ("name", "level", "color_class")
-    list_filter = ("color_class",)
-    search_fields = ("name",)
-    ordering = ("-level",)
+    list_display = ('titre', 'niveau', 'ordre')
+    list_editable = ('niveau', 'ordre')
+    search_fields = ('titre', 'description')
+    list_filter = ('niveau',)

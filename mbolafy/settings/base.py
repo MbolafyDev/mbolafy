@@ -22,16 +22,12 @@ INSTALLED_APPS = [
 
     # Tes apps
     'portfolio',
-    'accounts',
-    'about',
-    'skills',
-    'contact',
-    'hobbies',
+    'accueil',
+    'parcour',
     'experience',
-    'intro',
-    'photos',
-    'projet',
     'competence',
+    'projet',
+    'contact',
 ]
 
 # ---------------------------

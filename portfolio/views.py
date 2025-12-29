@@ -1,48 +1,34 @@
 # mbolafy/portfolio/views.py
 
 from django.shortcuts import render
-
-# Import des modèles depuis chaque app
-from accounts.models import Profile
-from about.models import IntroItem
-from skills.models import Quality, Language
-from contact.models import ContactInfo
-from hobbies.models import Hobby
+from accueil.models import Hero
+from parcour.models import Parcours
 from experience.models import Experience
-from photos.models import Photo
-from competence.models import Competence  # nouvelle app
-from projet.models import Projet  # nouvelle app
-from intro.models import About  # nouvelle app
+from competence.models import Competence
+from projet.models import Projet
+from contact.models import ContactInfo
 
 def home(request):
-    # Récupération des données
-    profile = Profile.objects.first()
-    intro_items = IntroItem.objects.all()
-    about = About.objects.first()
-    qualities = Quality.objects.all()
-    languages = Language.objects.all()  # récupère les niveaux textuels
-    contact_info = ContactInfo.objects.first()
-    hobbies = Hobby.objects.all()
-    photos = Photo.objects.all().order_by('-uploaded_at')
-    skills = Competence.objects.all().order_by('-level')
-    projects = Projet.objects.all().order_by('-created_at')
-
-    experiences = Experience.objects.filter(type='experience').order_by('-year')
-    parcours = Experience.objects.filter(type='parcours').order_by('-year')
+    # Récupérer le profil actif (le plus récent si plusieurs)
+    hero = Hero.objects.filter(is_active=True).order_by('-created_at').first()
+    # recupérer les parcours actifs
+    parcours = Parcours.objects.filter(is_active=True).order_by('ordre', '-annee_debut')
+    # recupérer les expériences actives
+    experiences = Experience.objects.filter(is_active=True).order_by('-created_at')
+    # recupere les compétences actives
+    competences = Competence.objects.all().order_by('ordre')
+    # recuperer les projets actifs
+    projets = Projet.objects.filter(is_active=True).order_by('-created_at')
+    # Récuperation des infos de contact actives
+    contact_info = ContactInfo.objects.filter(is_active=True).order_by('-created_at').first()
 
     context = {
-        "profile": profile,
-        "intro_items": intro_items,
-        "about": about,
-        "qualities": qualities,
-        "languages": languages,  # injection pour template
-        "contact_info": contact_info,
-        "hobbies": hobbies,
-        "photos": photos,
-        "skills": skills,
-        "projects": projects,
-        "experiences": experiences,
-        "parcours": parcours,
+        'hero': hero,
+        'parcours': parcours,
+        'experiences': experiences,
+        'competences': competences,
+        'projets': projets,
+        'contact_info': contact_info,
     }
 
     return render(request, "portfolio/index.html", context)
