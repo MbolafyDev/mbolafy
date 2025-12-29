@@ -1,4 +1,4 @@
-<section id="accueil" class="container-fluid p-0 w-100" style="padding-top:120px;">
+<section id="accueil" class="container" style="padding-top:120px;">
     <div class="row g-0"> <!-- g-0 supprime les espacements par défaut -->
 
         {% if hero %}
@@ -11,7 +11,7 @@
             </div>
 
             <!-- Colonne texte -->
-            <div class="col-lg-8 col-md-7 col-sm-12 d-flex flex-column justify-content-center px-5 py-4">
+            <div class="col-lg-8 col-md-7 col-sm-12 d-flex flex-column justify-content-center px-4 py-4">
                 <h1 class="page-title">{{ hero.nom_complet }}</h1>
                 <h4 class="fw-bold">{{ hero.prenom }}</h4>
 
@@ -31,77 +31,3 @@
 
     </div>
 </section>
-
-<!-- CSS supplémentaire pour la responsivité et largeur totale -->
-<style>
-/* Supprimer marges/paddings indésirables */
-#accueil {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-#accueil .row {
-    margin: 0;
-}
-
-/* Colonnes image et texte */
-#accueil .col-lg-4,
-#accueil .col-md-5,
-#accueil .col-sm-12 {
-    padding: 0; /* supprime tout padding */
-}
-
-/* Image profil */
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Desktop : image absolute pour recouvrir la colonne */
-@media (min-width: 992px) {
-    .hero-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-}
-
-/* Tablette */
-@media (max-width: 991.98px) {
-    #accueil .col-lg-4, 
-    #accueil .col-lg-8,
-    #accueil .col-md-5,
-    #accueil .col-md-7 {
-        height: auto; /* hauteur auto */
-        position: relative;
-    }
-    .hero-img {
-        position: relative;
-        height: 300px; /* hauteur tablette */
-    }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-    .hero-img {
-        position: relative;
-        width: 100%;
-        height: auto; /* s'adapte à l'image */
-        max-width: 100%;
-    }
-    #accueil .px-5 {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    #accueil .py-4 {
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
-    }
-    #accueil .col-sm-12 {
-        width: 100%;
-        padding: 0;
-    }
-}
-</style>
