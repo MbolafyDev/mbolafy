@@ -1,21 +1,20 @@
-# mbolafy/mbolafy/settings/prod.py
-
 import os
 from .base import *
 
 DEBUG = False
 
-# ALLOWED_HOSTS corrigé pour PythonAnywhere
 ALLOWED_HOSTS = os.getenv(
     'DJANGO_ALLOWED_HOSTS',
     "mbolafly.pythonanywhere.com,www.mbolafly.pythonanywhere.com"
-).split(',') + [".pythonanywhere.com", "localhost", "127.0.0.1"]
+).split(',') + ["127.0.0.1", "localhost"]
 
-# Si tu es derrière le proxy HTTPS de PythonAnywhere
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 
-# Base de données MySQL
+# Sécurité : vérifier le chargement des variables
+if not os.getenv("DATABASE_NAME"):
+    raise RuntimeError("❌ Variables MySQL non chargées (.env.prod)")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

@@ -1,7 +1,8 @@
-# mbolafy/mbolafy/settings/base.py
-
 import os
-from .base_dir_env import BASE_DIR
+from . import base_dir_env
+
+# BASE_DIR chargé après dotenv
+BASE_DIR = base_dir_env.BASE_DIR
 
 # ---------------------------
 #     Sécurité de base

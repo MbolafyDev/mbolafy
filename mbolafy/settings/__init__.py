@@ -1,3 +1,4 @@
+# mbolafy/mbolafy/settings/__init__.py
 import os
 
 # Si DJANGO_SETTINGS_MODULE n'est PAS défini,
