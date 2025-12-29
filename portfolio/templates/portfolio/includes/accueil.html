@@ -33,6 +33,23 @@
 </section>
 
 <style>
+/* Section et row pleine largeur */
+#accueil {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#accueil .row {
+    margin: 0;
+}
+
+/* Colonnes image et texte */
+#accueil .col-lg-4,
+#accueil .col-md-5,
+#accueil .col-sm-12 {
+    padding: 0;
+}
+
 /* Image profil */
 .hero-img {
     width: 100%;
@@ -41,10 +58,10 @@
     display: block;
 }
 
-/* Desktop : garder la colonne flexible */
+/* Desktop : image recouvre la colonne */
 @media (min-width: 992px) {
     #accueil .col-lg-4 {
-        min-height: 400px; /* hauteur minimale pour l'image desktop */
+        min-height: 400px; /* hauteur minimale pour image desktop */
     }
 }
 
@@ -64,9 +81,17 @@
 
 /* Mobile */
 @media (max-width: 576px) {
-    .hero-img {
+    #accueil .col-sm-12 {
         width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .hero-img {
+        width: 100vw; /* prend toute la largeur de l'écran */
         height: auto;
+        display: block;
+        object-fit: cover;
     }
 
     #accueil .px-3 {
