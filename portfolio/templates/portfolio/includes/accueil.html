@@ -1,5 +1,5 @@
-<section id="accueil" class="container-fluid" style="padding-top:120px;">
-    <div class="row g-0"> <!-- g-0 pour supprimer l'espacement par défaut -->
+<section id="accueil" class="container-fluid p-0" style="padding-top:120px;">
+    <div class="row g-0"> <!-- g-0 supprime les espacements par défaut -->
 
         {% if hero %}
             <!-- Colonne image -->
@@ -32,8 +32,25 @@
     </div>
 </section>
 
-<!-- CSS supplémentaire pour la responsivité -->
+<!-- CSS supplémentaire pour la responsivité et largeur totale -->
 <style>
+/* Supprimer marges/paddings indésirables */
+#accueil {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#accueil .row {
+    margin: 0;
+}
+
+/* Colonnes image et texte */
+#accueil .col-lg-4,
+#accueil .col-md-5,
+#accueil .col-sm-12 {
+    padding: 0; /* supprime tout padding */
+}
+
 /* Image profil */
 .hero-img {
     width: 100%;
@@ -57,12 +74,12 @@
     #accueil .col-lg-8,
     #accueil .col-md-5,
     #accueil .col-md-7 {
-        height: auto; /* laisser la hauteur s'ajuster */
+        height: auto; /* hauteur auto */
         position: relative;
     }
     .hero-img {
         position: relative;
-        height: 300px; /* hauteur adaptée tablette */
+        height: 300px; /* hauteur tablette */
     }
 }
 
