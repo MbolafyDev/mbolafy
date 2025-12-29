@@ -34,43 +34,57 @@
 
 <!-- CSS supplémentaire pour la responsivité -->
 <style>
-    /* Image profil */
+/* Image profil */
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Desktop : image absolute pour recouvrir la colonne */
+@media (min-width: 992px) {
     .hero-img {
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+/* Tablette */
+@media (max-width: 991.98px) {
+    #accueil .col-lg-4, 
+    #accueil .col-lg-8,
+    #accueil .col-md-5,
+    #accueil .col-md-7 {
+        height: auto; /* laisser la hauteur s'ajuster */
+        position: relative;
+    }
+    .hero-img {
+        position: relative;
+        height: 300px; /* hauteur adaptée tablette */
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .hero-img {
+        position: relative;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+        height: auto; /* s'adapte à l'image */
+        max-width: 100%;
     }
-
-    /* Responsive pour mobiles et tablettes */
-    @media (max-width: 992px) { /* tablette */
-        #accueil .col-lg-4, 
-        #accueil .col-lg-8,
-        #accueil .col-md-5,
-        #accueil .col-md-7 {
-            height: auto; /* laisser la hauteur s'ajuster */
-            position: relative;
-        }
-        .hero-img {
-            position: relative;
-            height: 300px; /* hauteur adaptée */
-        }
+    #accueil .px-5 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
-
-    @media (max-width: 576px) { /* mobile */
-        .hero-img {
-            height: 250px; /* ajustement sur petit écran */
-        }
-        #accueil .px-5 {
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-        }
-        #accueil .py-4 {
-            padding-top: 15px !important;
-            padding-bottom: 15px !important;
-        }
+    #accueil .py-4 {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
     }
+    #accueil .col-sm-12 {
+        width: 100%;
+        padding: 0;
+    }
+}
 </style>
