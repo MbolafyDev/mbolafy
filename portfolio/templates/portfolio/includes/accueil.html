@@ -3,11 +3,10 @@
 
         {% if hero %}
             <!-- Colonne image -->
-            <div class="col-md-4 p-0" style="overflow:hidden; background-color:#000;">
+            <div class="col-md-4 p-0" style="position:relative; overflow:hidden; background-color:#000;">
                 <img src="{{ hero.image.url }}" 
-                     class="hero-img w-100 h-100" 
                      alt="{{ hero.nom_complet }}" 
-                     style="object-fit: cover; display:block;">
+                     style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; display:block;">
             </div>
 
             <!-- Colonne texte -->
@@ -35,7 +34,7 @@
 <!-- CSS supplémentaire pour la responsivité -->
 <style>
     /* Assurer que l'image reste toujours à l'intérieur de sa div */
-    .hero-img {
+    #accueil .col-md-4 img {
         object-fit: cover;
         width: 100%;
         height: 100%;
@@ -50,7 +49,7 @@
         #accueil .col-md-8 {
             height: auto;
         }
-        #accueil .hero-img {
+        #accueil .col-md-4 img {
             height: 300px; /* hauteur adaptée sur mobile */
         }
     }
