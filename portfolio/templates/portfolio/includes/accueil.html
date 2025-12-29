@@ -1,30 +1,57 @@
-<section id="accueil" class="container-fluid" style="padding-top:120px">
-  <div class="row" style="height:500px;">
+<section id="accueil" class="container-fluid" style="padding-top:120px;">
+    <div class="row" style="height:500px;">
 
-      {% if hero %}
-          <div class="col-md-4 p-0" style="overflow:hidden; background-color:#000;">
-              <img src="{{ hero.image.url }}" 
-                   class="hero-img w-100 h-100" 
-                   alt="{{ hero.nom_complet }}" 
-                   style="object-fit: cover;">
-          </div>
+        {% if hero %}
+            <!-- Colonne image -->
+            <div class="col-md-4 p-0" style="overflow:hidden; background-color:#000;">
+                <img src="{{ hero.image.url }}" 
+                     class="hero-img w-100 h-100" 
+                     alt="{{ hero.nom_complet }}" 
+                     style="object-fit: cover; display:block;">
+            </div>
 
-          <div class="col-md-8 d-flex flex-column justify-content-center px-5">
-              <h1 class="page-title">{{ hero.nom_complet }}</h1>
-              <h4 class="fw-bold">{{ hero.prenom }}</h4>
+            <!-- Colonne texte -->
+            <div class="col-md-8 d-flex flex-column justify-content-center px-5">
+                <h1 class="page-title">{{ hero.nom_complet }}</h1>
+                <h4 class="fw-bold">{{ hero.prenom }}</h4>
 
-              <div class="job-box">
-                  <i class="fa {{ hero.icon }}"></i>
-                  {{ hero.metier }}
-              </div>
+                <div class="job-box">
+                    <i class="fa {{ hero.icon }}"></i>
+                    {{ hero.metier }}
+                </div>
 
-              <p>{{ hero.description }}</p>
-          </div>
-      {% else %}
-          <div class="col-12 text-center">
-              <p>Aucune information disponible pour le moment.</p>
-          </div>
-      {% endif %}
+                <p>{{ hero.description }}</p>
+            </div>
 
-  </div>
+        {% else %}
+            <div class="col-12 text-center">
+                <p>Aucune information disponible pour le moment.</p>
+            </div>
+        {% endif %}
+
+    </div>
 </section>
+
+<!-- CSS supplémentaire pour la responsivité -->
+<style>
+    /* Assurer que l'image reste toujours à l'intérieur de sa div */
+    .hero-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Responsive pour mobiles */
+    @media (max-width: 768px) {
+        #accueil .row {
+            height: auto; /* laisser la hauteur s'ajuster */
+        }
+        #accueil .col-md-4, 
+        #accueil .col-md-8 {
+            height: auto;
+        }
+        #accueil .hero-img {
+            height: 300px; /* hauteur adaptée sur mobile */
+        }
+    }
+</style>
