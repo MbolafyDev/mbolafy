@@ -24,6 +24,8 @@ body{
     color:#000;
     font-size:14px;
     line-height:1.7;
+    margin:0;
+    padding:0;
 }
 
 /* NAVBAR */
@@ -38,32 +40,45 @@ body{
     color:#000 !important;
 }
 
-/* SECTIONS */
-section{ padding:80px 0; }
-.section-title{
-    font-size:15px;
-    font-weight:bold;
-    text-transform:uppercase;
-    border-bottom:2px solid var(--main);
-    display:inline-block;
-    margin-bottom:35px;
-    padding-bottom:5px;
+/* SECTIONS - responsive global */
+section {
+    width: 100%;
+    padding: 80px 0;
+    margin: 0;
+}
+.row {
+    margin: 0;
+    width: 100%;
 }
 
-/* HERO */
+/* HERO SECTION */
 #accueil{
     background:#000;
     color:#fff;
 }
 .hero-img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
+
+/* Texte responsive */
 .page-title{
-    font-size:26px;
-    font-weight:bold;
+    font-weight: bold;
+    line-height: 1.2;
 }
+@media (max-width: 576px) {
+    .page-title { font-size: 22px; }
+}
+@media (min-width: 577px) and (max-width: 991.98px) {
+    .page-title { font-size: 28px; }
+}
+@media (min-width: 992px) {
+    .page-title { font-size: 36px; }
+}
+
+/* Job box */
 .job-box{
     background:#fff;
     color:#000;
@@ -109,7 +124,7 @@ section{ padding:80px 0; }
     color:#fff;
 }
 
-/* SKILLS MODERNE */
+/* SKILLS */
 .skills-section{
     background:var(--gray);
 }
@@ -194,6 +209,27 @@ section{ padding:80px 0; }
 }
 #scrollTop:hover{
     background:#333;
+}
+
+/* GLOBAL RESPONSIVE FIX POUR MOBILE */
+@media (max-width: 576px) {
+    .container, .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .col, .col-sm-12, .col-md-12, .col-lg-12 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
 }
 </style>
 </head>
