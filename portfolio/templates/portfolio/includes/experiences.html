@@ -1,19 +1,15 @@
-{% comment %} mbolafy/portfolio/includes/experiences.html {% endcomment %}
-
+<!-- EXPERIENCES.HTML -->
 <section id="experiences" class="container">
-    <h2 class="section-title"><i class="fa fa-briefcase"></i> Expériences</h2>
-
-    {% if experiences %}
-        {% for exp in experiences %}
-            {% if exp.is_active %}
-            <div class="experience-card">
-                <strong>{{ exp.titre }}{% if exp.entreprise %} – {{ exp.entreprise }}{% endif %}</strong>
-                <div class="small">{{ exp.date_debut }} – {{ exp.date_fin }}</div>
-                <p>{{ exp.description }}</p>
-            </div>
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        <p>Aucune expérience disponible pour le moment.</p>
-    {% endif %}
+<h2 class="section-title">Expériences</h2>
+<div class="row g-4">
+{% for exp in experiences %}
+<div class="col-md-6">
+<div class="card-simple">
+<strong>{{ exp.titre }} – {{ exp.entreprise }}</strong>
+<div class="small">{{ exp.date_debut }} – {{ exp.date_fin }}</div>
+<p>{{ exp.description }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
 </section>
