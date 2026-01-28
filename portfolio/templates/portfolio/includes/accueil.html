@@ -1,21 +1,23 @@
-<section id="accueil" class="vh-100 d-flex align-items-center">
+<section id="accueil" class="min-vh-100 d-flex align-items-center py-5">
   <div class="container">
     <div class="row align-items-center">
       
-      <div class="col-md-6 animate">
+      <!-- Texte -->
+      <div class="col-12 col-md-6 mb-4 mb-md-0 animate text-center text-md-start">
         <h1 class="display-4 fw-bold">{{ hero.nom_complet }}</h1>
         <h4 class="text-warning fw-bold">{{ hero.metier }}</h4>
         <p class="mt-3">{{ hero.description }}</p>
 
-        <div class="d-flex gap-3 mt-4">
+        <div class="d-flex flex-column flex-sm-row gap-3 mt-4 justify-content-center justify-content-md-start">
           <a href="#contact" class="btn btn-warning fw-bold px-4">Me contacter</a>
           <a href="#projets" class="btn btn-outline-light px-4">Voir mes projets</a>
         </div>
       </div>
 
-      <div class="col-md-6 d-flex justify-content-center animate">
+      <!-- Image -->
+      <div class="col-12 col-md-6 d-flex justify-content-center animate">
         <div class="profile-wrapper">
-          <img src="{{ hero.image.url }}" alt="Photo profil">
+          <img src="{{ hero.image.url }}" alt="Photo profil" class="img-fluid rounded">
         </div>
       </div>
 
