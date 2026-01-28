@@ -1,50 +1,7 @@
-{% comment %} mbolafy/contact/includes/contact.html {% endcomment %}
-
+<!-- CONTACT.HTML -->
 <section id="contact" class="container">
-    <h2 class="section-title">
-        <i class="fa fa-envelope"></i> Contact
-    </h2>
-
-    {% if contact_info %}
-
-        <!-- Adresse -->
-        <p>
-            <i class="fa fa-map-marker-alt"></i>
-            <a href="https://www.google.com/maps/search/?api=1&query={{ contact_info.location|urlencode }}"
-               target="_blank"
-               rel="noopener noreferrer">
-                {{ contact_info.location }}
-            </a>
-        </p>
-
-        <!-- Téléphone -->
-        <p>
-            <i class="fa fa-phone"></i>
-            <a href="tel:{{ contact_info.phone }}">
-                {{ contact_info.phone }}
-            </a>
-        </p>
-
-        <!-- Email -->
-        <p>
-            <i class="fa fa-envelope"></i>
-            <a href="mailto:{{ contact_info.email }}">
-                {{ contact_info.email }}
-            </a>
-        </p>
-
-    {% else %}
-        <p>Aucune information de contact disponible pour le moment.</p>
-    {% endif %}
+<h2 class="section-title">Contact</h2>
+<p><i class="fa fa-map-marker-alt"></i> {{ contact_info.location }}</p>
+<p><i class="fa fa-phone"></i> {{ contact_info.phone }}</p>
+<p><i class="fa fa-envelope"></i> {{ contact_info.email }}</p>
 </section>
-<style>
-    #contact a {
-    color: #ffc107; /* warning */
-    text-decoration: none;
-        font-weight: 500;
-    }
-    
-    #contact a:hover {
-        text-decoration: underline;
-    }
-</style>
