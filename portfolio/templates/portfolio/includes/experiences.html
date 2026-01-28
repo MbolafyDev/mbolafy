@@ -1,13 +1,15 @@
-<!-- EXPERIENCES -->
 <section id="experiences" class="container">
   <h2 class="section-title">Expériences</h2>
+
   <div class="row g-4">
     {% for exp in experiences %}
       <div class="col-md-6 animate">
-        <div class="card-simple">
-          <strong>{{ exp.titre }}</strong>
-        <div class="small">{{ exp.date_debut }} – {{ exp.date_fin }}</div>
-          <p>{{ exp.description }}</p>
+        <div class="card-simple h-100">
+          <h6 class="fw-bold mb-1">{{ exp.titre }}</h6>
+          <small class="text-muted">
+            {{ exp.date_debut }} – {{ exp.date_fin }}
+          </small>
+          <p class="mt-3">{{ exp.description }}</p>
         </div>
       </div>
     {% endfor %}
