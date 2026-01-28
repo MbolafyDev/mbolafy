@@ -8,3 +8,21 @@
         {% include 'portfolio/includes/projet.html' %}
         {% include 'portfolio/includes/contact.html' %}
 {% endblock %}
+
+<!-- ANIMATION SCRIPT -->
+<script>
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('show') }
+        })
+        },{threshold:0.15})
+        
+        
+        document.querySelectorAll('.animate').forEach(el=>observer.observe(el))
+        </script>
+        
+        
+        <style>
+        .animate{opacity:0; transform:translateY(40px); transition:0.8s ease}
+        .animate.show{opacity:1; transform:none}
+</style>
