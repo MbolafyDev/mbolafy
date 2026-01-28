@@ -1,16 +1,16 @@
-<!-- PROJETS.HTML -->
+<!-- PROJETS -->
 <section id="projets" class="container">
     <h2 class="section-title">Projets</h2>
     <div class="row g-4">
         {% for projet in projets %}
-        <div class="col-md-4">
-            <div class="card-simple">
-                <img src="{{ projet.image.url }}" class="project-img mb-3">
-                <strong>{{ projet.titre }}</strong>
-                <p>{{ projet.description|truncatechars:90 }}</p>
-                <a v-if="true" href="{{ projet.lien }}" target="_blank" class="btn btn-outline-dark btn-sm">Voir</a>
+            <div class="col-md-4 animate">
+                <div class="card-simple">
+                    <img src="{{ projet.image.url }}" class="img-fluid mb-3 rounded">
+                    <strong>{{ projet.titre }}</strong>
+                    <p>{{ projet.description|truncatechars:90 }}</p>
+                    <a href="{{ projet.lien }}" target="_blank" class="btn btn-outline-dark btn-sm">Voir</a>
+                </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </section>
