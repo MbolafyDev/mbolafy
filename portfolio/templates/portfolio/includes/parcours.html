@@ -1,13 +1,13 @@
-<!-- PARCOURS.HTML -->
+<!-- PARCOURS -->
 <section id="parcours" class="container">
-<h2 class="section-title">Parcours</h2>
-<div class="timeline">
-{% for item in parcours %}
-<div class="timeline-item">
-<strong>{{ item.titre }}</strong>
-<div class="small">{{ item.annee_debut }} - {{ item.annee_fin }}</div>
-<p>{{ item.description }}</p>
-</div>
-{% endfor %}
-</div>
+  <h2 class="section-title">Parcours</h2>
+  <div class="timeline">
+    {% for item in parcours %}
+      <div class="timeline-item animate">
+        <strong>{{ item.titre }}</strong>
+      <div class="small">{{ item.annee_debut }} - {{ item.annee_fin }}</div>
+        <p>{{ item.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
 </section>
