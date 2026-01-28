@@ -3,18 +3,21 @@
 
   <div class="row g-4">
     {% for projet in projets %}
-      <div class="col-md-4 animate">
-        
-        <div class="project-card-modern">
-          <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 animate">
 
-          <div class="project-overlay">
+        <div class="project-card-ultra">
+          <div class="project-image">
+            <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
+          </div>
+
+          <div class="project-content">
             <h6>{{ projet.titre }}</h6>
             <p>{{ projet.description|truncatechars:90 }}</p>
 
             <a href="{{ projet.lien }}" target="_blank"
-               class="btn btn-warning btn-sm fw-bold">
+               class="project-btn">
               Voir le projet
+              <i class="fa fa-arrow-right"></i>
             </a>
           </div>
         </div>
@@ -23,58 +26,127 @@
     {% endfor %}
   </div>
 </section>
-
 <style>
-.project-card-modern{
+/* =======================
+   PROJET CARD ULTRA
+======================= */
+
+.project-card-ultra{
   position:relative;
-  height:320px;
-  border-radius:22px;
+  height:360px;
+  border-radius:26px;
   overflow:hidden;
-  cursor:pointer;
-  box-shadow:0 25px 50px rgba(0,0,0,.15);
-  transition:.5s;
+  background:#000;
+  box-shadow:0 30px 60px rgba(0,0,0,.18);
+  transition:transform .6s cubic-bezier(.19,1,.22,1);
 }
 
-.project-card-modern img{
+.project-card-ultra:hover{
+  transform:translateY(-12px);
+}
+
+/* IMAGE */
+.project-image{
+  position:absolute;
+  inset:0;
+}
+.project-image img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:1s;
+  transition:transform 1.2s ease;
+}
+.project-card-ultra:hover img{
+  transform:scale(1.18);
 }
 
-/* OVERLAY */
-.project-overlay{
+/* OVERLAY GRADIENT */
+.project-card-ultra::after{
+  content:'';
   position:absolute;
   inset:0;
   background:linear-gradient(
     to top,
     rgba(0,0,0,.85),
-    rgba(0,0,0,.2)
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.1)
   );
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:25px;
-  color:#fff;
-  opacity:0;
-  transition:.5s;
-}
-
-.project-overlay h6{
-  font-weight:800;
-  margin-bottom:8px;
-}
-
-.project-overlay p{
-  font-size:13px;
   opacity:.9;
 }
 
-/* HOVER */
-.project-card-modern:hover img{
-  transform:scale(1.12);
+/* CONTENT */
+.project-content{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px;
+  color:#fff;
+  transform:translateY(30px);
+  opacity:0;
+  transition:.6s ease;
 }
-.project-card-modern:hover .project-overlay{
+
+.project-card-ultra:hover .project-content{
+  transform:none;
   opacity:1;
+}
+
+.project-content h6{
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+.project-content p{
+  font-size:13px;
+  opacity:.9;
+  margin:10px 0 16px;
+}
+
+/* BUTTON */
+.project-btn{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:30px;
+  background:#ffc107;
+  color:#000;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  transition:.4s;
+}
+
+.project-btn:hover{
+  background:#fff;
+  transform:translateX(5px);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 768px){
+  .project-card-ultra{
+    height:300px;
+  }
+  .project-content{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@media (max-width: 480px){
+  .project-card-ultra{
+    height:260px;
+    border-radius:20px;
+  }
+  .project-content{
+    padding:20px;
+  }
 }
 </style>
