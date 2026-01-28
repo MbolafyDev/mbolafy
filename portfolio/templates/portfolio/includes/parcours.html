@@ -1,13 +1,47 @@
-<!-- PARCOURS -->
 <section id="parcours" class="container">
   <h2 class="section-title">Parcours</h2>
+
   <div class="timeline">
     {% for item in parcours %}
       <div class="timeline-item animate">
-        <strong>{{ item.titre }}</strong>
-      <div class="small">{{ item.annee_debut }} - {{ item.annee_fin }}</div>
-        <p>{{ item.description }}</p>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card-simple">
+          <strong class="d-block">{{ item.titre }}</strong>
+          <small class="text-muted">
+            {{ item.annee_debut }} – {{ item.annee_fin }}
+          </small>
+          <p class="mt-2">{{ item.description }}</p>
+        </div>
       </div>
     {% endfor %}
   </div>
 </section>
+
+<style>
+.timeline{
+  position:relative;
+  padding-left:30px;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:8px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:#ffc107;
+}
+.timeline-item{
+  position:relative;
+  margin-bottom:40px;
+}
+.timeline-dot{
+  position:absolute;
+  left:-2px;
+  top:10px;
+  width:16px;
+  height:16px;
+  background:#ffc107;
+  border-radius:50%;
+}
+</style>
