@@ -1,18 +1,39 @@
+<!-- INCLUDES MIS À JOUR – Compatibles Vue.js CDN (classique & propre) -->
+
+
+<!-- NAVBAR.HTML -->
 <nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
-    <a class="navbar-brand fw-bold" href="#accueil"><i class="fa fa-code"></i> Mbola Fy</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#accueil"><i class="fa fa-user"></i> À propos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#parcours"><i class="fa fa-graduation-cap"></i> Parcours</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experiences"><i class="fa fa-briefcase"></i> Expériences</a></li>
-            <li class="nav-item"><a class="nav-link" href="#competences"><i class="fa fa-cogs"></i> Compétences</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projets"><i class="fa fa-folder-open"></i> Projets</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
-        </ul>
-    </div>
+<a class="navbar-brand fw-bold" href="#accueil"><i class="fa fa-code"></i> Mbola Fy</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item" v-for="item in menu" :key="item.id">
+<a class="nav-link" :href="item.link"><i :class="item.icon"></i> {{ item.label }}</a>
+</li>
+</ul>
+</div>
 </div>
 </nav>
+
+
+<script>
+if(window.Vue){
+Vue.createApp({
+data(){
+return{
+menu:[
+{id:1,label:'À propos',link:'#accueil',icon:'fa fa-user'},
+{id:2,label:'Parcours',link:'#parcours',icon:'fa fa-graduation-cap'},
+{id:3,label:'Expériences',link:'#experiences',icon:'fa fa-briefcase'},
+{id:4,label:'Compétences',link:'#competences',icon:'fa fa-cogs'},
+{id:5,label:'Projets',link:'#projets',icon:'fa fa-folder-open'},
+{id:6,label:'Contact',link:'#contact',icon:'fa fa-envelope'},
+]
+}
+}
+}).mount('.navbar')
+}
+</script>
