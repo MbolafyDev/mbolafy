@@ -4,137 +4,136 @@
   <div class="row g-4">
     {% for projet in projets %}
       <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 animate">
-
-        <div class="shop-card">
+        <div class="project-card">
 
           <!-- IMAGE -->
-          <div class="shop-img">
+          <div class="project-img">
             <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
-            <span class="shop-badge">Projet</span>
+            <span class="project-badge">Projet</span>
           </div>
 
           <!-- CONTENT -->
-          <div class="shop-body">
-            <h6 class="shop-title">{{ projet.titre }}</h6>
-
-            <p class="shop-desc">
-              {{ projet.description|truncatechars:75 }}
-            </p>
-
-            <div class="shop-footer">
-              <a href="{{ projet.lien }}" target="_blank" class="shop-btn">
+          <div class="project-body">
+            <h6 class="project-title">{{ projet.titre }}</h6>
+            <p class="project-desc">{{ projet.description|truncatechars:75 }}</p>
+            <div class="project-footer">
+              <a href="{{ projet.lien }}" target="_blank" class="project-btn">
                 Voir le projet
-                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-arrow-right"></i>
               </a>
             </div>
           </div>
 
         </div>
-
       </div>
     {% endfor %}
   </div>
 </section>
 
-/* ======================
-   SHOP CARD
-====================== */
 
-.shop-card{
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-  height:100%;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  transition:.4s ease;
-  display:flex;
-  flex-direction:column;
+<style>
+  /* ======================
+   PROJECT CARD
+====================== */
+.project-card {
+  background: var(--light);
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  transition: transform .4s ease, box-shadow .4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.shop-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(0,0,0,.15);
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.15);
 }
 
 /* IMAGE */
-.shop-img{
-  position:relative;
-  height:210px;
-  overflow:hidden;
+.project-img {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
 }
-.shop-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.8s ease;
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
 }
-.shop-card:hover img{
-  transform:scale(1.08);
+.project-card:hover img {
+  transform: scale(1.08);
 }
 
 /* BADGE */
-.shop-badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:#ffc107;
-  color:#000;
-  padding:5px 12px;
-  font-size:11px;
-  font-weight:700;
-  border-radius:20px;
+.project-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent);
+  color: var(--dark);
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  text-transform: uppercase;
 }
 
 /* BODY */
-.shop-body{
-  padding:18px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
+.project-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.shop-title{
-  font-weight:800;
-  font-size:15px;
-  margin-bottom:8px;
+.project-title {
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--dark);
 }
 
-.shop-desc{
-  font-size:13px;
-  opacity:.75;
-  flex:1;
+.project-desc {
+  font-size: 14px;
+  opacity: .75;
+  flex: 1;
 }
 
 /* FOOTER */
-.shop-footer{
-  margin-top:14px;
+.project-footer {
+  margin-top: 14px;
 }
 
 /* BUTTON */
-.shop-btn{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  padding:10px;
-  border-radius:12px;
-  background:#000;
-  color:#fff;
-  font-size:13px;
-  font-weight:700;
-  text-decoration:none;
-  transition:.3s;
+.project-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--dark);
+  color: var(--light);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s ease;
 }
 
-.shop-btn:hover{
-  background:#ffc107;
-  color:#000;
+.project-btn:hover {
+  background: var(--accent);
+  color: var(--dark);
 }
 
 /* RESPONSIVE */
-@media(max-width:768px){
-  .shop-img{
-    height:180px;
+@media(max-width:768px) {
+  .project-img {
+    height: 180px;
   }
 }
+
+</style>
