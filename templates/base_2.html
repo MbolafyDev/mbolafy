@@ -75,13 +75,14 @@ section{
   align-items:center;
   overflow:hidden; /* empêche l'image de dépasser du cercle */
   padding:5px; /* léger padding pour l'effet gradient */
+  box-sizing:border-box; /* s'assure que le padding n'agrandit pas le wrapper */
 }
 
 .profile-wrapper img{
   width:100%;
   height:100%;
-  border-radius:50%;
-  object-fit:cover;
+  border-radius:50%; /* rend l'image parfaitement ronde */
+  object-fit:cover; /* conserve le ratio et remplit le cercle */
   display:block;
   background:#000;
 }
@@ -93,7 +94,7 @@ section{
   border-radius:50%;
   border:2px dashed rgba(255,193,7,.6);
   animation:spin 18s linear infinite;
-  box-sizing:border-box; /* pour que la bordure reste à l'intérieur */
+  box-sizing:border-box; /* la bordure reste à l'intérieur du wrapper */
 }
 
 @keyframes spin{
@@ -139,6 +140,7 @@ section{
   font-weight:bold;
 }
 </style>
+
 
 </head>
 
