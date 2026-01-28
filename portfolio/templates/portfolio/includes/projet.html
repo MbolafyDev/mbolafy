@@ -1,23 +1,34 @@
 <section id="projets" class="container">
-  <h2 class="section-title">Projets</h2>
+  <h2 class="section-title mb-5">Projets</h2>
 
-  <div class="row g-5">
+  <div class="row g-4">
     {% for projet in projets %}
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 animate">
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 animate">
 
-        <div class="project-card-clean">
-          <div class="project-thumb">
+        <div class="shop-card">
+
+          <!-- IMAGE -->
+          <div class="shop-img">
             <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
+            <span class="shop-badge">Projet</span>
           </div>
 
-          <div class="project-body">
-            <h6>{{ projet.titre }}</h6>
-            <p>{{ projet.description|truncatechars:90 }}</p>
+          <!-- CONTENT -->
+          <div class="shop-body">
+            <h6 class="shop-title">{{ projet.titre }}</h6>
 
-            <a href="{{ projet.lien }}" target="_blank" class="project-btn">
-              Voir le projet <i class="fa fa-arrow-right"></i>
-            </a>
+            <p class="shop-desc">
+              {{ projet.description|truncatechars:75 }}
+            </p>
+
+            <div class="shop-footer">
+              <a href="{{ projet.lien }}" target="_blank" class="shop-btn">
+                Voir le projet
+                <i class="fa fa-shopping-cart"></i>
+              </a>
+            </div>
           </div>
+
         </div>
 
       </div>
@@ -25,77 +36,105 @@
   </div>
 </section>
 
-<style>
 /* ======================
-   PROJECT CARD CLEAN
+   SHOP CARD
 ====================== */
 
-.project-card-clean{
+.shop-card{
   background:#fff;
-  border-radius:22px;
+  border-radius:18px;
   overflow:hidden;
   height:100%;
-  box-shadow:0 20px 40px rgba(0,0,0,.12);
-  transition:.6s cubic-bezier(.19,1,.22,1);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  transition:.4s ease;
+  display:flex;
+  flex-direction:column;
 }
 
-.project-card-clean:hover{
-  transform:translateY(-10px);
+.shop-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
 }
 
-/* IMAGE PLUS PETITE */
-.project-thumb{
-  height:190px;
+/* IMAGE */
+.shop-img{
+  position:relative;
+  height:210px;
   overflow:hidden;
 }
-.project-thumb img{
+.shop-img img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:1s ease;
+  transition:.8s ease;
 }
-.project-card-clean:hover img{
-  transform:scale(1.1);
+.shop-card:hover img{
+  transform:scale(1.08);
+}
+
+/* BADGE */
+.shop-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#ffc107;
+  color:#000;
+  padding:5px 12px;
+  font-size:11px;
+  font-weight:700;
+  border-radius:20px;
 }
 
 /* BODY */
-.project-body{
-  padding:22px;
+.shop-body{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
 }
-.project-body h6{
+
+.shop-title{
   font-weight:800;
-  margin-bottom:10px;
+  font-size:15px;
+  margin-bottom:8px;
 }
-.project-body p{
+
+.shop-desc{
   font-size:13px;
-  opacity:.85;
-  margin-bottom:16px;
+  opacity:.75;
+  flex:1;
+}
+
+/* FOOTER */
+.shop-footer{
+  margin-top:14px;
 }
 
 /* BUTTON */
-.project-btn{
-  display:inline-flex;
+.shop-btn{
+  width:100%;
+  display:flex;
+  justify-content:center;
   align-items:center;
-  gap:6px;
-  padding:8px 16px;
-  border-radius:25px;
-  background:#ffc107;
-  color:#000;
+  gap:8px;
+  padding:10px;
+  border-radius:12px;
+  background:#000;
+  color:#fff;
   font-size:13px;
   font-weight:700;
   text-decoration:none;
-  transition:.4s;
+  transition:.3s;
 }
-.project-btn:hover{
-  background:#000;
-  color:#fff;
-  transform:translateX(6px);
+
+.shop-btn:hover{
+  background:#ffc107;
+  color:#000;
 }
 
 /* RESPONSIVE */
-@media (max-width:768px){
-  .project-thumb{
-    height:160px;
+@media(max-width:768px){
+  .shop-img{
+    height:180px;
   }
 }
-</style>
