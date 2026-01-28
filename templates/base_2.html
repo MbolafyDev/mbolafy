@@ -151,33 +151,68 @@ section{
 const { createApp } = Vue
 
 createApp({
-  data(){
-    return{
-      showTop:false
+  data() {
+    return {
+      showTop: false,
+      menu: [
+        { id: 1, label: 'Accueil', link: '#accueil' },
+        { id: 2, label: 'Parcours', link: '#parcours' },
+        { id: 3, label: 'Expériences', link: '#experiences' },
+        { id: 4, label: 'Compétences', link: '#competences' },
+        { id: 5, label: 'Projets', link: '#projets' },
+        { id: 6, label: 'Contact', link: '#contact' }
+      ]
     }
   },
-  mounted(){
-    window.addEventListener('scroll',()=>{
+
+  mounted() {
+
+    /* =====================
+       SCROLL EVENTS
+    ====================== */
+    window.addEventListener('scroll', () => {
       this.showTop = window.scrollY > 400
-      document.querySelector('.navbar')
-        ?.classList.toggle('scrolled',window.scrollY>50)
+
+      const navbar = document.querySelector('.navbar')
+      if (navbar) {
+        navbar.classList.toggle('scrolled', window.scrollY > 50)
+      }
     })
 
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add('show')
-      })
-    },{threshold:.15})
+    /* =====================
+       SCROLL ANIMATIONS
+    ====================== */
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show')
+            observer.unobserve(entry.target) // animation une seule fois
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+      }
+    )
 
-    document.querySelectorAll('.animate').forEach(el=>observer.observe(el))
+    document.querySelectorAll('.animate').forEach(el => {
+      observer.observe(el)
+    })
   },
-  methods:{
-    scrollTop(){
-      window.scrollTo({top:0,behavior:'smooth'})
+
+  methods: {
+    scrollTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     }
   }
 }).mount('#app')
 </script>
+
 
 </body>
 </html>
