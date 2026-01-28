@@ -1,18 +1,37 @@
-<!-- COMPETENCES -->
 <section id="competences" class="skills-section">
   <div class="container">
     <h2 class="section-title">Compétences</h2>
-      <div class="row g-4">
-        {% for competence in competences %}
-          <div class="col-md-4 animate">
-            <div class="card-simple text-center">
-              <i class="{{ competence.icone }} fa-2x mb-3"></i>
-              <h6 class="fw-bold">{{ competence.titre }}</h6>
-              <p>{{ competence.description }}</p>
-              <div class="progress"><div class="progress-bar" style="width:{{ competence.niveau }}%"></div></div>
+
+    <div class="row g-4">
+      {% for competence in competences %}
+        <div class="col-md-4 animate">
+          <div class="card-simple text-center">
+            <i class="{{ competence.icone }} fa-2x text-warning mb-3"></i>
+            <h6 class="fw-bold">{{ competence.titre }}</h6>
+            <p class="small">{{ competence.description }}</p>
+
+            <div class="progress mt-3">
+              <div class="progress-bar"
+                   style="width:{{ competence.niveau }}%">
+              </div>
             </div>
+            <small class="fw-bold">{{ competence.niveau }}%</small>
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
+
+<style>
+.skills-section{
+  background:#f6f6f6;
+}
+.progress{
+  height:6px;
+  border-radius:10px;
+}
+.progress-bar{
+  background:#ffc107;
+}
+</style>
