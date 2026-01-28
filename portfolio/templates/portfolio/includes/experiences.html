@@ -1,15 +1,15 @@
-<!-- EXPERIENCES.HTML -->
+<!-- EXPERIENCES -->
 <section id="experiences" class="container">
-<h2 class="section-title">Expériences</h2>
-<div class="row g-4">
-{% for exp in experiences %}
-<div class="col-md-6">
-<div class="card-simple">
-<strong>{{ exp.titre }} – {{ exp.entreprise }}</strong>
-<div class="small">{{ exp.date_debut }} – {{ exp.date_fin }}</div>
-<p>{{ exp.description }}</p>
-</div>
-</div>
-{% endfor %}
-</div>
+  <h2 class="section-title">Expériences</h2>
+  <div class="row g-4">
+    {% for exp in experiences %}
+      <div class="col-md-6 animate">
+        <div class="card-simple">
+          <strong>{{ exp.titre }}</strong>
+        <div class="small">{{ exp.date_debut }} – {{ exp.date_fin }}</div>
+          <p>{{ exp.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </section>
